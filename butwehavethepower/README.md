@@ -16,7 +16,7 @@ video src="https://www.cs.tufts.edu/comp/20/butwehavethepower.mp4" id="butwehave
 /video
 
 ### Instructions
-Using JavaScript, annotate the video with the lyrics of the song inside the <div id="lyrics">, line by line or by verse. Finally, you must provide some styling for the page via style.css.
+Using JavaScript, annotate the video with the lyrics of the song inside the div id="lyrics", line by line or by verse. Finally, you must provide some styling for the page via style.css.
 
 
 ### Implementation
