@@ -1,12 +1,13 @@
 body {
-text-align: center;
-font: Verdana;
+	text-align: center;
+	font: verdana;
+
 }
 
-#Title { 
-color:Blue;
-text-align: center;
-font: verdana;
-font-weight: 900; 
-font-variant: small-caps
+#title { 
+	border: 1px solid powderblue;
+	padding: 30px;
+	font-color:Blue;
+	text-align: center;
+	font: verdana;
 }

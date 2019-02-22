@@ -18,9 +18,15 @@ Using JavaScript, annotate the video with the lyrics of the song inside the <div
 
 ### Implementation
 * Video is annotated correctly using javascript and video element
+* CSS file (style.css) uses styling elements for index.html
 
 
 ### Sources
 * https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
 * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 * https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content
+
+
+### Time
+I spent about 2 hours on this lab
+
