@@ -14,3 +14,13 @@
 
 ### Instructions
 Using JavaScript, annotate the video with the lyrics of the song inside the <div id="lyrics">, line by line or by verse. Finally, you must provide some styling for the page via style.css.
+
+
+###Implementation
+* Video is annotated correctly using javascript and <video> element
+
+
+###Sources
+* https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
+* https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+* https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content

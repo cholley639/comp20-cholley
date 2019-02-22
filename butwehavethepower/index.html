@@ -15,6 +15,75 @@
 
 <script>
 	// Complete this section and create a CSS file named style.css
+
+	var video = document.getElementById("butwehavethepower");
+	var lyrics = document.getElementById("lyrics");
+
+	video.addEventListener("timeupdate", function() {
+
+		if (video.currentTime < 6) {
+			yrics.innerHTML = "<h2>Lisa:</h2>";
+		}
+		
+		else if (video.currentTime > 6 && video.currentTime < 8) {
+			lyrics.innerHTML = "<h3>Come gather round, children,</h3>";
+		}
+		
+		else if (video.currentTime > 8 && video.currentTime < 11) {
+			lyrics.innerHTML = "<h3>It's high time ye learned</h3>";
+		}
+		else if (video.currentTime > 11 && video.currentTime < 13) {
+			lyrics.innerHTML = "<h3>'Bout a hero named Homer</h3>";
+		}
+		else if (video.currentTime > 13 && video.currentTime < 16) {
+			lyrics.innerHTML = "<h3>And a devil named Burns.</h3>";
+		}
+		else if (video.currentTime > 17 && video.currentTime < 19) {
+			lyrics.innerHTML = "<h3>We'll march 'till we drop</h3>";
+		}
+		else if (video.currentTime > 19 && video.currentTime < 21) {
+			lyrics.innerHTML = "<h3>The girls and the fellas.</h3>";
+		}
+		else if (video.currentTime > 21 && video.currentTime < 23) {
+			lyrics.innerHTML = "<h3>We'll fight 'till the death</h3>";
+		}
+		else if (video.currentTime > 23 && video.currentTime < 27) {
+			lyrics.innerHTML = "<h3>Or else fold like umbrellas.</h3>";
+		}
+		else if (video.currentTime > 38 && video.currentTime < 40) {
+			lyrics.innerHTML = "<h3>So we'll march day and night</h3>";
+		}
+		else if (video.currentTime > 40 && video.currentTime < 43) {
+			lyrics.innerHTML = "<h3>By the big cooling tower.</h3>";
+		}
+		else if (video.currentTime > 43 && video.currentTime < 45) {
+			lyrics.innerHTML = "<h3>They have the plant</h3>";
+		}
+		else if (video.currentTime > 45 && video.currentTime < 49) {
+			lyrics.innerHTML = "<h3>But we have the power.</h3>";
+		}
+		else if (video.currentTime > 50 && video.currentTime < 52) {
+			lyrics.innerHTML = "<h2>Lenny:</h2>";
+		}
+		else if (video.currentTime > 53 && video.currentTime < 54) {
+			lyrics.innerHTML = "<h3>Now do 'Classical Gas!'</h3>";
+		}
+		else if (video.currentTime > 72.5 && video.currentTime < 75) {
+			lyrics.innerHTML = "<h3>So we'll march day and night</h3>";
+		}
+		else if (video.currentTime > 75 && video.currentTime < 77) {
+			lyrics.innerHTML = "<h3>By the big cooling tower.</h3>";
+		}
+		else if (video.currentTime > 77 && video.currentTime < 80) {
+			lyrics.innerHTML = "<h3>They have the plant</h3>";
+		}
+		else if (video.currentTime > 80 && video.currentTime < 83) {
+			lyrics.innerHTML = "<h3>But we have the power.</h3>";
+		}
+		else {
+			lyrics.innerHTML ="";
+		}
+		}, false);
 </script>
 </body>
 </html>	
