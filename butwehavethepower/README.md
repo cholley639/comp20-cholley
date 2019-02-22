@@ -1,5 +1,8 @@
 ### Comp20 Lab 5
 ## Lab: Union Strike Folk Song
+Cameron Holley
+Feb 2019
+
 
 ### README Objectives
 * Identify what aspects of the work have been correctly implemented and what have not.
