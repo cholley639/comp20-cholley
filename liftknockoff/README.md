@@ -15,3 +15,6 @@ For this assignment, you will be building the front-end of a private car a la ri
 2. Retrieves and displays the locations of vehicles OR passengers on a map, depending on who you are. Your web page will need to handle both cases (showing locations of vehicles or passengers on map) as it is possible that I can change your status from a passenger to a driver, vice versa.
 3. Upon clicking on your marker (i.e., where you are currently located), show how far away you are to (1) the nearest vehicle or passenger --depending on who you are, and (2) the Weinermobile --if it exists!
 
+
+
+
