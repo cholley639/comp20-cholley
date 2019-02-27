@@ -18,3 +18,5 @@ For this assignment, you will be building the front-end of a private car a la ri
 
 
 
+###Other
+* ride request API https://hans-moleman.herokuapp.com/rides
