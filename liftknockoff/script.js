@@ -31,12 +31,12 @@ function getMyLocation() {
         me = new google.maps.LatLng(myLat, myLng);
         // Update map and go there...
         map.panTo(me);
-        xmlrequests();
         });
     }
     else {
         alert("Geolocation is not supported by your web browser.  What a shame!");
     }
+    xmlrequests();
 }
 
 //xml request
