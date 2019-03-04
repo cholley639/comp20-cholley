@@ -67,18 +67,22 @@
                 var username = "Tkwu74WC";
                 var param_string = "username=" + username +"&lat=" + myLat + "&lng=" + myLng;
 
-                request = new XMLHttpRequest();
+                var request = new XMLHttpRequest();
                 request.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 console.log(request.readyState);
 
                 request.onreadystatechange = function() {
                     if (request.readyState == 4 && request.status == 200) {
-                        console.log(request.readyState);
-                        objects = JSON.parse(request.responseText);
+                        parse();
                     }
                 };
                 request.send(param_string);
+            }
+
+            function parse() {
+                objects = JSON.parse(request.responseText);
+                
             }
         </script>
     </head>
