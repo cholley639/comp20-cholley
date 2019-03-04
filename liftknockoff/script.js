@@ -5,7 +5,7 @@ var weiner_dist;
 var closest_marker = 1000000;
 var myLat = 0;
 var myLng = 0;
-var me = new google.maps.LatLng(0, 0);
+var me;
 
 var myOptions = {
     zoom: 13, // The larger the zoom number, the bigger the zoom
@@ -31,12 +31,12 @@ function getMyLocation() {
         me = new google.maps.LatLng(myLat, myLng);
         // Update map and go there...
         map.panTo(me);
+        xmlrequests();
         });
     }
     else {
         alert("Geolocation is not supported by your web browser.  What a shame!");
     }
-    xmlrequests();
 }
 
 //xml request
@@ -79,7 +79,7 @@ function parse(request) {
                 var pass = new google.maps.LatLng(curr_passenger["lat"], curr_passenger["lng"]);
                 var new_marker = new google.maps.Marker({
                 position: pass,
-                title: "Passenger!" + i,
+                title: "username: "+curr_passenger["username"]+" | Distance: "+distance(pass)+" mi away from me",
                 icon: passenger_icon,
                 map: map
                 });
@@ -107,9 +107,12 @@ function weiner(curr_passenger) {
     weiner_bool = true;
 
     var weiner_pos = new google.maps.LatLng(curr_passenger["lat"], curr_passenger["lng"]);
+
+    weiner_dist = distance(weiner_pos);
+
     var new_marker = new google.maps.Marker({
         position: weiner_pos,
-        title: "username: Weinermobile | distance: " + distance(weiner_pos)+" mi",
+        title: "username: Weinermobile | Distance: " + weiner_dist+" mi away from me",
         icon: "Weinermobile.png",
         map: map
     });
@@ -121,27 +124,34 @@ function weiner(curr_passenger) {
     });
 }
     
-function distance(weiner_pos) {
+function distance(pos) {
     var dist;
-    dist = google.maps.geometry.spherical.computeDistanceBetween(weiner_pos, me);
+    dist = google.maps.geometry.spherical.computeDistanceBetween(pos, me);
     dist = dist/1609.344;
     dist = Number((dist).toFixed(3));
-    weiner_dist = dist;
     return dist;
 }
 
 function updateMe() {
     // Create a marker
+    var myicon = {
+        url: "mymarker.png",
+        scaledSize: new google.maps.Size(32, 32)
+    };
+
+
     if (weiner_bool) {
         marker = new google.maps.Marker({
             position: me,
-            title: "Nearest marker: "+closest_marker+" mi"+" | Weinermobile is "+weiner_dist+" miles away"
+            title: "Nearest marker: "+closest_marker+" mi"+" | Weinermobile is "+weiner_dist+" miles away",
+            icon: myicon
         });
     }
     else {
         marker = new google.maps.Marker({
             position: me,
-            title: "Nearest marker: " + closest_marker +" mi" + " | The Weinermobile is nowhere to be seen"
+            title: "Nearest marker: " + closest_marker +" mi" + " | The Weinermobile is nowhere to be seen",
+            icon: myicon
         });
     }
     marker.setMap(map);
