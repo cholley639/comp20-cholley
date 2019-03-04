@@ -12,7 +12,7 @@ var myOptions = {
     mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
-var map
+var map;
 var marker;
 var infowindow = new google.maps.InfoWindow();
 
@@ -63,7 +63,6 @@ function xmlrequests() {
     var request = new XMLHttpRequest();
     request.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    console.log(request.readyState);
 
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
@@ -76,5 +75,37 @@ function xmlrequests() {
 function parse(request) {
     objects = JSON.parse(request.responseText);
     console.log(objects);
+    if ("passengers" in objects) {
+        var passengers = objects["passengers"];
+        for (i = 0; i < passengers.length ; i++) {
+            var curr_passenger = passengers[i];
+            // Create a marker
+            var passenger_icon = {
+                url: "passenger.png",
+                size: new google.maps.Size(26, 26)
+            };
+
+            var pass = new google.maps.LatLng(curr_passenger["lat"], curr_passenger["lng"]);
+            var new_marker = new google.maps.Marker({
+            position: pass,
+            title: "Passenger!" + i,
+            icon: passenger_icon,
+            map: map
+            });
+
+            var new_window = new google.maps.InfoWindow();
+
+            // Open info window on click of marker
+            google.maps.event.addListener(new_marker, 'click', function() {
+            new_window.setContent(this.title);
+            new_window.open(map, this);
+            });
+
+        }
+    }
+    else{
+        console.log("nah");
+
+    }
     
 }
