@@ -59,7 +59,6 @@ function xmlrequests() {
 
 function parse(request) {
     objects = JSON.parse(request.responseText);
-    console.log(objects);
     if ("passengers" in objects) {
         var passengers = objects["passengers"];
         for (i = 0; i < passengers.length ; i++) {
@@ -97,7 +96,41 @@ function parse(request) {
         }
     }
     else{
-        console.log("nah");
+        var vehicles = objects["vehicles"];
+        for (i = 0; i < vehicles.length ; i++) {
+            var vehicle = vehicles[i];
+            //check Weinermobile
+            if (vehicle["username"] == "WEINERMOBILE") {
+                weiner(vehicle);
+            }
+
+            else {
+                // Create a marker
+                var vehicle_icon = {
+                    url: "vehicle.png",
+                    size: new google.maps.Size(26, 26)
+                };
+
+                var vehicle_pos = new google.maps.LatLng(vehicle["lat"], vehicle["lng"]);
+                var new_marker = new google.maps.Marker({
+                position: vehicle_pos,
+                title: "username: "+vehicle["username"]+" | Distance: "+distance(vehicle_pos)+" mi away from me",
+                icon: vehicle_icon,
+                map: map
+                });
+
+                // Open info window on click of marker
+                google.maps.event.addListener(new_marker, 'click', function() {
+                infowindow.setContent(this.title);
+                infowindow.open(map, this);
+                });
+
+                if (distance(vehicle_pos) < closest_marker) {
+                    closest_marker = distance(vehicle_pos);
+                }
+            }
+        }
+        
     }
 
     updateMe();
