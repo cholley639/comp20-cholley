@@ -108,7 +108,7 @@ function parse(request) {
                 // Create a marker
                 var vehicle_icon = {
                     url: "vehicle.png",
-                    size: new google.maps.Size(26, 26)
+                    scaledSize: new google.maps.Size(15, 35)
                 };
 
                 var vehicle_pos = new google.maps.LatLng(vehicle["lat"], vehicle["lng"]);
