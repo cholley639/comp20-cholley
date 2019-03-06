@@ -176,7 +176,7 @@ function updateMe() {
     if (weiner_bool) {
         marker = new google.maps.Marker({
             position: me,
-            title: "Nearest marker: "+closest_marker+" mi"+" | Weinermobile is "+weiner_dist+" miles away",
+            title: "username: Tkwu74WC | Nearest marker: "+closest_marker+" mi"+" | Weinermobile is "+weiner_dist+" miles away",
             icon: myicon
         });
     }
