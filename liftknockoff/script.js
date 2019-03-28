@@ -46,8 +46,9 @@ function xmlrequests() {
     var param_string = "username=" + username +"&lat=" + myLat + "&lng=" + myLng;
 
     var request = new XMLHttpRequest();
-    request.open("POST", "https://hans-moleman.herokuapp.com/rides", true);
+    request.open("POST", "https://morning-tor-13076.herokuapp.com/rides", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
 
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
