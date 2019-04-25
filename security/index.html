@@ -7,8 +7,20 @@
 </head>
 
 <body>
-	<h1>Introduction</h1>
+	<h2>Introduction</h2>
 	<p>The product that I am testing today is a server-side, web application hosted on heroku that uses the Node.js and Express web frameworks.The server is supposed to maintain and serve locations of passengers and vehicles (with username, latitutde, and longitude) for a long period of time. The server uses a MongoDB to store the data.</p>
 	<p>I was hired to find and document any security vulnerabilities that I was able to locate in the web application. These may include, but are not limited to, database injection, XSS, or bad programming practices.
+
+	<h2>Methodology</h2>
+	<p> My approach was to start with the two forms of attacks that I am most familiar with - database injection and XSS. I started with a "black-box" approach, not looking at the source code for the product.</p>
+
+	<h2>Abstract</h2>
+	<p>Abstract here. </p>
+
+	<h2>Issues located</h2>
+
+	<h3>Attack 1</h3>
+	<p>The first attack I performed was a database injection. The page where this issue was found is in the /passengers.json html page. I would call this a high-security issue, as data with the live/current location of clients using the product can be available to anyone with malicious intent. A screenshot of the data is shown below. </p>
+	<img src="attack1" alt="Screenshot of database injection">
 </body>
 </html>
