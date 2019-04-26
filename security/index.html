@@ -2,7 +2,8 @@
 
 <html>
 <head>
-	<title>Assignment 4</title>
+	<title>Security Assessment - A4</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf8"/>
 </head>
 
@@ -12,15 +13,38 @@
 	<p>I was hired to find and document any security vulnerabilities that I was able to locate in the web application. These may include, but are not limited to, database injection, XSS, or bad programming practices.
 
 	<h2>Methodology</h2>
-	<p> My approach was to start with the two forms of attacks that I am most familiar with - database injection and XSS. I started with a "black-box" approach, not looking at the source code for the product.</p>
+	<p> My approach was to start with the two forms of attacks that I am most familiar with - database injection and XSS. I started with a "black-box" approach, not looking at the source code for the product. Once I had successfully implemented those two attacks without looking at the product's source code, I moved on to scanning and looking over the code itself for possible security risks. Enabling CORS immediately stuck out to me.</p>
 
 	<h2>Abstract</h2>
-	<p>Abstract here. </p>
+	<p>The two main risks that I have identified with the product invovle exposure and potential manipulation of sensistive data and the potential for the product to sending malicous viruses to users computers. The third security risk that I identified is merely a lack of proper use of a built in security feature. While the product does have some extreme security risks, they can easily be preveneted wih the right code.</p>
 
-	<h2>Issues located</h2>
+	<h2>Specific Security Issues</h2>
 
 	<h3>Attack 1</h3>
-	<p>The first attack I performed was a database injection. The page where this issue was found is in the /passengers.json html page. I would call this a high-security issue, as data with the live/current location of clients using the product can be available to anyone with malicious intent. A screenshot of the data is shown below. </p>
-	<img src="attack1" alt="Screenshot of database injection">
+	<p>The first attack I performed was a database injection. The page where this issue was found is in the /passengers.json html page. I would call this a high-security issue, as data with the live/current location of clients using the product can be available to anyone with malicious intent. I knew that the "/passengers.json" page accepted a query, so I simply entered query information that would make the statement true, thus returning all data that satisfied the true condition. A screenshot of the data is shown below. </p>
+	<img src="attack1.png" alt="Screenshot of database injection">
+	<p>This can be resolved by validating the query information from the get request. Express has a "validator" package that would be very helpful here.</p>
+
+	<h3>Attack 2</h3>
+	<p>I successfully implemented an XSS attack with html tags on the product. The problem was in the post route to "/rides". I would call this a medium prioirty issue because I think a javascript XSS attack would be much more dangerous than an html XSS attack. With html, all the attacker can really do is load/show content. With javascript, the attack could be much more dangerous by pulling information from cookies, or recording user keyboard strokes, etc.</p>
+	<p>I started by putting the product in my assignment 2 map. And then I did the post request with some html text for the "username" parameter. Then, once I loaded my map, the marker showed the html text in the pop-up window where the username would normally be. A screenshot is shown below. </p>
+	<img src="attack2.png" alt="Screenshot of XSS attack">
+	<p>The way to prevent these types of XSS attacks is to remove the ability for data to be interpreted as code. One way to do this would be to change the angle brackets, thus the angle brackets in the attack won't be interpreted as code.</p>
+
+	<h3>3rd Security Issue</h3>
+	<p>The third security issue that I found was by doing a "white-box" search through my partners code. It is a case of bad-programming practice. The issue is located in the post route of the web-server. By using the '*' argument for "Access-Allow-Origin-Control" as part of the CORS policy, any site can submit a post request. The code is shown below.</p>
+	<img src="attack3.png" alt="Screenshot of CORS policy code">
+	<p>I would describe this is a high-priority risk because it allows for any potential attacker anywhere to submit XHR requests. If CORS wasn't enabled, then attack2 would not even be possible to commit. The way to prevent this is to use some sort of authorization or authentication scheme to only allow select domains to send an XHR request and interact with the post route of the server.</p>
+
+	<h2>Conclusion</h2>
+	<p> In conclusion, there are minimal preventative secrity measures to guard against possible attacks. Two of the most common, yet easiest to prevent, web-based attacks are relatively easy to perform on the product. I'm sure there is much more that I have not even listed. That being said, I have provided suggestions for how to prevent against each attack in the section above. One of the costs of un-enabling CORS however, is that a significant amount of overhead must be added to properly distribute authentication schemes to all users who are interested in using the product.</p>
+
+	<h2>References</h2>
+	<p> * My partner - Craig Neubieser</p>
+	<p>	* XSS - https://www.veracode.com/security/xss</p>
+	<p>	* CORS - https://stackoverflow.com/questions/9713644/when-is-it-safe-to-enable-cors/9725695#9725695</p>
+	<p>	* Database Injection - https://sites.google.com/site/iasoncs/home/database-security/nosql-injection</p>
+
+	
 </body>
 </html>
