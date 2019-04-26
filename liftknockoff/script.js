@@ -46,7 +46,7 @@ function xmlrequests() {
     var param_string = "username=" + username +"&lat=" + myLat + "&lng=" + myLng;
 
     var request = new XMLHttpRequest();
-    request.open("POST", "http://desolate-ridge-97512.herokuapp.com//rides", true);
+    request.open("POST", "https://morning-tor-13076.herokuapp.com/rides", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
 
